@@ -1,0 +1,1 @@
+en este repo debe estar el diseño en figma u otra app para diseñar

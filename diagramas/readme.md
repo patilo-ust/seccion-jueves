@@ -1,0 +1,1 @@
+en este repo deben estar todos los diagramas utilizados y comentados en el proyecto
