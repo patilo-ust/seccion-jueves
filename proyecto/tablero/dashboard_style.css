@@ -1,0 +1,200 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    min-height: 100vh; /* Ocupa al menos el 100% de la altura de la ventana */
+    background-color: #f0f0f0; /* Color de fondo general */
+}
+
+.dashboard-container {
+    display: flex;
+    width: 100vw; /* Ocupa todo el ancho de la ventana */
+    height: 100vh; /* Ocupa todo el alto de la ventana */
+    overflow: hidden; /* Evita scrolls inesperados en el contenedor principal */
+}
+
+/* --- Estilos de la Barra Lateral (Sidebar) --- */
+.sidebar {
+    width: 180px; /* Ancho fijo de la barra lateral */
+    background-color: #ffe0b2; /* Naranja claro */
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0; /* Evita que la barra lateral se encoja */
+}
+
+.nav-button {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-bottom: 15px;
+    
+    /* ASEGÚRATE DE QUE ESTAS PROPIEDADES ESTÉN AQUÍ O SEAN APLICADAS */
+    display: block; /* O inline-block */
+    width: 80%; /* Asegura que tenga el mismo ancho que los botones */
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+    /* FIN DE LAS PROPIEDADES A REVISAR */
+
+    text-align: center;
+    cursor: pointer;
+    font-size: 1em;
+    color: #333;
+    text-decoration: none; /* Importante para los enlaces: quita el subrayado por defecto */
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.nav-button:hover {
+    background-color: #e0e0e0;
+    border-color: #999;
+}
+
+/* --- Estilos del Contenido Principal --- */
+.main-content {
+    flex-grow: 1; /* Permite que ocupe todo el espacio restante */
+    background-color: #e3f2fd; /* Azul claro */
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    overflow-y: auto; /* Permite desplazamiento si el contenido es demasiado largo */
+}
+
+.page-header {
+    background-color: #bbdefb; /* Azul un poco más oscuro */
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.page-header h1 {
+    margin: 0;
+    color: #333;
+    font-size: 1.8em;
+}
+
+.user-stats {
+    background-color: white;
+    border: 1px solid #90caf9; /* Borde azul */
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    color: #555;
+    white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+}
+
+.user-stats span {
+    font-weight: bold;
+    color: #1976d2; /* Azul más oscuro para el número */
+}
+
+/* --- Estilos del Área del Gráfico --- */
+.chart-area {
+    flex-grow: 1;
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex; /* Para centrar el gráfico */
+    justify-content: center;
+    align-items: center;
+    min-height: 300px; /* Altura mínima para el gráfico */
+}
+
+.chart-wrapper {
+    display: flex;
+    height: 250px; /* Altura total del área del gráfico */
+    width: 90%; /* Ancho del gráfico dentro de su contenedor */
+    max-width: 700px; /* Para que no sea demasiado ancho en pantallas grandes */
+    border-bottom: 1px solid #999; /* Eje X */
+    border-left: 1px solid #999; /* Eje Y */
+    position: relative; /* Para las líneas de cuadrícula */
+    background-color: #f8f8f8; /* Fondo para el área del gráfico */
+}
+
+.chart-y-axis {
+    display: flex;
+    flex-direction: column-reverse; /* Para que 0 esté abajo y 200 arriba */
+    justify-content: space-between;
+    padding-right: 10px;
+    font-size: 0.8em;
+    color: #666;
+    height: 100%;
+    transform: translateY(-5px); /* Ajuste visual para la etiqueta 0 */
+}
+.chart-y-axis span:last-child {
+    transform: translateY(-50%); /* Ajuste visual para la etiqueta superior */
+}
+.chart-y-axis span:first-child {
+    transform: translateY(50%); /* Ajuste visual para la etiqueta inferior (0) */
+}
+
+
+.chart-bars-container {
+    flex-grow: 1;
+    display: flex;
+    align-items: flex-end; /* Las barras comienzan desde abajo */
+    justify-content: space-around; /* Distribuye las barras uniformemente */
+    gap: 5px; /* Espacio entre barras y etiquetas de mes */
+    position: relative;
+    padding-bottom: 5px; /* Espacio para las etiquetas de mes */
+}
+
+.month-label {
+    position: absolute;
+    bottom: -15px; /* Debajo de la línea del eje X */
+    font-size: 0.75em;
+    color: #666;
+    text-align: center;
+    width: 30px; /* Ancho para cada etiqueta de mes */
+}
+
+/* Posicionamiento de las etiquetas de mes (ajuste manual para ejemplo) */
+.chart-bars-container .month-label:nth-child(1) { left: 5%; }
+.chart-bars-container .month-label:nth-child(2) { left: 16%; }
+.chart-bars-container .month-label:nth-child(3) { left: 27%; }
+.chart-bars-container .month-label:nth-child(4) { left: 38%; }
+.chart-bars-container .month-label:nth-child(5) { left: 49%; }
+.chart-bars-container .month-label:nth-child(6) { left: 60%; }
+.chart-bars-container .month-label:nth-child(7) { left: 71%; }
+.chart-bars-container .month-label:nth-child(8) { left: 82%; }
+.chart-bars-container .month-label:nth-child(9) { left: 93%; }
+
+
+.bar {
+    width: 25px; /* Ancho de cada barra */
+    background-color: #42a5f5; /* Color azul de las barras */
+    border: 1px solid #1976d2; /* Borde más oscuro */
+    box-sizing: border-box; /* Incluye padding y borde en el ancho/alto */
+}
+
+/* Alturas de las barras (aproximadas según la imagen) */
+.bar-may { height: 95px; } /* ~95 */
+.bar-jun { height: 130px; } /* ~130 */
+.bar-jul { height: 155px; } /* ~155 */
+.bar-ago { height: 50px; }  /* ~50 */
+.bar-sep { height: 205px; } /* ~205 */
+.bar-oct { height: 105px; } /* ~105 */
+.bar-nov { height: 108px; } /* ~108 */
+.bar-dic { height: 145px; } /* ~145 */
+.bar-ene { height: 120px; } /* ~120 */
+
+
+/* Líneas de cuadrícula */
+.grid-line {
+    position: absolute;
+    width: 100%;
+    border-top: 1px dotted #ccc; /* Línea punteada */
+    left: 0;
+}
+
+.line-200 { bottom: calc((200 / 200) * 100%); } /* Ajusta estas posiciones */
+.line-150 { bottom: calc((150 / 200) * 100%); }
+.line-100 { bottom: calc((100 / 200) * 100%); }
+.line-50  { bottom: calc((50 / 200) * 100%); }
