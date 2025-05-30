@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Tareas</title>
+    <link rel="stylesheet" href="tickets_style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="input-group">
+                <label for="nombreTarea">Nombre tarea</label>
+                <input type="text" id="nombreTarea">
+            </div>
+            <div class="input-group">
+                <label for="estado">Estado</label>
+                <select id="estado">
+                    <option value="nuevo">Nuevo</option>
+                    <option value="en_proceso">En Proceso</option>
+                    <option value="finalizado">Finalizado</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="agregar">Usuario</label>
+                <input type="text" id="usuario" required>
+            </div>
+            <button class="crear-button" id="btnCrear">Crear</button>
+            
+            <a href="../dashboard.html" class="dashboard-button">Dashboard</a> 
+            
+        </div>
+
+        <div class="content">
+            <div class="image-placeholder">
+                </div>
+            <div class="table-container">
+                <h3>Tareas</h3>
+                <table id="tareasTable">
+                    <thead>
+                        <tr>
+                            <th>Tarea</th>
+                            <th>Estado</th>
+                            <th>Usuario</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="tickets_script.js"></script>
+</body>
+</html>
