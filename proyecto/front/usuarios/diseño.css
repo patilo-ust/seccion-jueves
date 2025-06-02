@@ -1,0 +1,76 @@
+/* === DISEÑO PARA LA PAGINA USUARIOS === */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* === Encabezado (Busqueda y Botones) === */
+.header {
+  background-color: #d6e7d3; /* Verde claro */
+  padding: 20px;
+  border: 1px solid #999; /* Línea gris clara en el borde */
+}
+
+.header label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 13px;
+}
+
+/* Input de texto para escribir nombre de usuario */
+.header input[type="text"] {
+  width: 230px;
+  padding: 4px;
+  margin-bottom: 10px;
+  border: 1px solid black;
+}
+
+/* Contenedor de los botones: buscar y reportar */
+.header .buttons {
+  display: flex;
+  gap: 10px;
+}
+
+/* Estilos base de ambos botones */
+.header button {
+  padding: 6px 12px;
+  border: 1px solid black;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* Botón rojo para reportar usuario */
+.report-button {
+  background-color: red;
+  color: white;
+}
+
+/* === Perfil === */
+.content {
+  display: flex;
+  padding: 40px;
+  align-items: flex-start;
+}
+
+/* Círculo que representa la foto del usuario */
+.profile-pic {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #6b8766; /* Verde oscuro */
+  margin-right: 40px;
+  border: 1px solid black;
+}
+
+/* Contenedor con los datos del perfil */
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Cada línea de texto que muestra información */
+.info p {
+  margin: 0;
+  font-size: 13px;
+}

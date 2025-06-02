@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CRUD</title>
+
+  <link rel="stylesheet" href="estilo.css" />
+</head>
+<body>
+
+  <!-- Fondo rojo de la página-->
+  <div class="fondo-rojo"></div>
+
+  <!-- Contenedor principal del CRUD -->
+  <div class="container">
+    <h1>CRUD</h1>
+
+    <!-- === Formulario === -->
+    <div class="formulario">
+
+      <!-- Fila para el ID -->
+      <div class="fila">
+        <label for="id">ID</label>
+        <input type="text" id="id" placeholder=""/>
+        <!-- Al hacer clic, se ejecuta la función buscar() -->
+        <button onclick="buscar()">Buscar</button>
+      </div>
+
+      <!-- Fila para el usuario -->
+      <div class="fila">
+        <label for="nombre">Nombre Usuario</label>
+        <input type="text" id="nombre" placeholder=""/>
+        <!-- Botón que solicita confirmación antes de eliminar -->
+        <button onclick="confirmarAccion('eliminar')">Eliminar</button>
+      </div>
+
+      <!-- Fila para el correo -->
+      <div class="fila">
+        <label for="correo">Correo electrónico</label>
+        <input type="email" id="correo" placeholder=""/>
+        <!-- Botón que solicita confirmación antes de editar -->
+        <button onclick="confirmarAccion('editar')">Editar</button>
+      </div>
+    </div>
+
+    <!-- Tabla de usuarios -->
+    <!-- Los de backend puede usar esta tabla para mostrar todos los usuarios existentes -->
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre usuario</th>
+          <th>Correo electrónico</th>
+        </tr>
+      </thead>
+
+      <tbody id="tabla-datos">
+        <!-- Estos <tr> vacíos sirven como base para que JS (funcion.js) llene los datos -->
+        <tr><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+
+    <!-- Popup de confirmación -->
+    <!-- Se muestra cuando el usuario intenta eliminar o editar -->
+    <div class="popup" id="popup">
+      <p>¿Está seguro?</p>
+      <button onclick="ejecutarAccion()">Confirmar</button>
+    </div>
+  </div>
+
+  <script src="funcion.js"></script>
+</body>
+</html>
