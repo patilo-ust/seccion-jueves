@@ -1,0 +1,203 @@
+/* styles.css */
+
+/* Estilos CSS para dar formato a la página y sus elementos */
+body {
+    font-family: sans-serif; /* Fuente de letra predeterminada para el cuerpo del documento */
+    margin: 0; /* Elimina los márgenes predeterminados del cuerpo */
+    display: flex; /* Utiliza Flexbox para la disposición de los elementos hijos */
+    min-height: 100vh; /* Asegura que el cuerpo ocupe al menos la altura completa de la ventana */
+    overflow: hidden; /* Oculta cualquier contenido que se desborde fuera de la ventana */
+}
+
+/* Estilos para el fondo izquierdo con diseño triangular */
+.left-background {
+    width: 60%; /* Ocupa el 60% del ancho de la ventana */
+    position: relative; /* Establece un contexto de posicionamiento para los pseudo-elementos */
+    background: linear-gradient(to bottom right, #ffebee 50%, #f3e5f5 100%); /* Degradado de rosa claro a lila claro */
+    overflow: hidden; /* Asegura que los pseudo-elementos triangulares se recorten */
+}
+
+/* Triángulo superior del fondo izquierdo */
+.left-background::before {
+    content: ''; /* Necesario para que el pseudo-elemento se renderice */
+    position: absolute; /* Posiciona el elemento relativamente a su ancestro posicionado más cercano */
+    top: 0; /* Lo coloca en la parte superior */
+    left: 0; /* Lo coloca en la parte izquierda */
+    border-top: 100vh solid #ffebee; /* Crea un borde superior sólido rosa claro con la altura de la ventana */
+    border-right: 100vw solid transparent; /* Crea un borde derecho transparente con el ancho de la ventana (forma la diagonal) */
+    z-index: 1; /* Asegura que esté por encima del fondo degradado */
+}
+
+/* Triángulo inferior del fondo izquierdo */
+.left-background::after {
+    content: ''; /* Necesario para que el pseudo-elemento se renderice */
+    position: absolute; /* Posiciona el elemento relativamente a su ancestro posicionado más cercano */
+    bottom: 0; /* Lo coloca en la parte inferior */
+    left: 0; /* Lo coloca en la parte izquierda */
+    border-bottom: 100vh solid #f3e5f5; /* Crea un borde inferior sólido lila claro con la altura de la ventana */
+    border-right: 100vw solid transparent; /* Crea un borde derecho transparente con el ancho de la ventana (forma la diagonal) */
+    z-index: 1; /* Asegura que esté por encima del fondo degradado */
+}
+
+/* Estilos para el fondo derecho que contiene el formulario de inicio de sesión */
+.right-background {
+    background-color: #e0f2f7; /* Color de fondo azul claro muy suave */
+    width: 40%; /* Ocupa el 40% del ancho de la ventana */
+    display: flex; /* Utiliza Flexbox para centrar el contenido */
+    justify-content: center; /* Centra horizontalmente el contenido */
+    align-items: center; /* Centra verticalmente el contenido */
+}
+
+/* Estilos para el contenedor del formulario de inicio de sesión */
+.login-container {
+    background-color: #ffe0b2; /* Color de fondo naranja claro */
+    padding: 30px; /* Espacio de relleno alrededor del contenido */
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    text-align: center; /* Alinea el texto al centro */
+    width: 80%; /* Ancho del contenedor relativo a su padre */
+    max-width: 350px; /* Ancho máximo para evitar que se expanda demasiado */
+}
+
+/* Estilos para el título principal "Bienvenido" */
+h1 {
+    color: #212121; /* Color de texto gris oscuro */
+    margin-bottom: 20px; /* Espacio inferior */
+    font-size: 2.5em; /* Tamaño de la fuente */
+}
+
+/* Estilos para el subtítulo "Iniciar sesión" */
+h2 {
+    color: #424242; /* Color de texto gris más claro */
+    margin-top: 0; /* Elimina el margen superior */
+    margin-bottom: 15px; /* Espacio inferior */
+    font-size: 1.8em; /* Tamaño de la fuente */
+}
+
+/* Estilos para las etiquetas de los campos del formulario */
+label {
+    display: block; /* Hace que la etiqueta ocupe todo el ancho disponible */
+    margin-bottom: 8px; /* Espacio inferior */
+    color: #616161; /* Color de texto gris */
+    font-size: 0.95em; /* Tamaño de la fuente */
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+/* Estilos para los campos de entrada de texto y contraseña */
+input[type="text"],
+input[type="password"] {
+    width: calc(100% - 16px); /* Ancho del 100% menos el padding y el borde */
+    padding: 10px; /* Espacio de relleno dentro del campo */
+    margin-bottom: 15px; /* Espacio inferior */
+    border: 1px solid #bdbdbd; /* Borde gris claro */
+    border-radius: 5px; /* Bordes redondeados */
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
+    font-size: 1em; /* Tamaño de la fuente */
+}
+
+/* Estilos para los botones */
+button {
+    background-color: #fff; /* Color de fondo blanco */
+    color: #424242; /* Color de texto gris más claro */
+    border: 1px solid #bdbdbd; /* Borde gris claro */
+    padding: 12px 25px; /* Espacio de relleno dentro del botón */
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    font-size: 1.1em; /* Tamaño de la fuente */
+    margin-top: 15px; /* Espacio superior */
+    transition: background-color 0.3s ease; /* Transición suave para el hover */
+}
+
+/* Estilos para el botón al pasar el ratón */
+button:hover {
+    background-color: #f5f5f5; /* Color de fondo gris muy claro al pasar el ratón */
+}
+
+/* Estilos para el enlace "Recuperar Contraseña" */
+.forgot-password {
+    display: block; /* Hace que el enlace ocupe todo el ancho disponible */
+    margin-top: 10px; /* Espacio superior */
+    color: #1976d2; /* Color de texto azul */
+    text-decoration: none; /* Elimina el subrayado predeterminado */
+    font-size: 0.9em; /* Tamaño de la fuente */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+}
+
+/* Estilos para el enlace "Recuperar Contraseña" al pasar el ratón */
+.forgot-password:hover {
+    text-decoration: underline; /* Subraya el enlace al pasar el ratón */
+}
+
+/* Estilos para el modal (ventana emergente) de recuperación de contraseña */
+.modal {
+    display: none; /* Inicialmente oculto */
+    position: fixed; /* Se mantiene en la ventana del navegador */
+    z-index: 1; /* Asegura que esté por encima de otros elementos */
+    left: 0; /* Lo alinea al borde izquierdo */
+    top: 0; /* Lo alinea al borde superior */
+    width: 100%; /* Ocupa todo el ancho de la ventana */
+    height: 100%; /* Ocupa toda la altura de la ventana */
+    overflow: auto; /* Permite el desplazamiento si el contenido es largo */
+    background-color: rgba(0,0,0,0.4); /* Fondo oscuro con transparencia */
+}
+
+/* Estilos para el contenido dentro del modal */
+.modal-content {
+    background-color: #fefefe; /* Color de fondo blanco */
+    margin: 15% auto; /* Centra verticalmente y tiene un margen superior */
+    padding: 20px; /* Espacio de relleno */
+    border: 1px solid #888; /* Borde gris */
+    width: 80%; /* Ancho del contenido del modal */
+    border-radius: 8px; /* Bordes redondeados */
+    position: relative; /* Permite posicionar elementos dentro */
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+/* Estilos para el botón de cerrar el modal */
+.close-button {
+    color: #aaa; /* Color de texto gris claro */
+    float: right; /* Lo alinea a la derecha */
+    font-size: 28px; /* Tamaño de la fuente */
+    font-weight: bold; /* Texto en negrita */
+}
+
+/* Estilos para el botón de cerrar al pasar el ratón o tener el foco */
+.close-button:hover,
+.close-button:focus {
+    color: black; /* Color de texto negro */
+    text-decoration: none; /* Elimina el subrayado */
+    cursor: pointer; /* Cambia el cursor */
+}
+
+/* Estilos para las etiquetas dentro del modal */
+.modal-content label {
+    display: block; /* Ocupa todo el ancho */
+    margin-bottom: 5px; /* Espacio inferior */
+    color: #555; /* Color de texto gris */
+    font-size: 0.9em; /* Tamaño de la fuente */
+}
+
+/* Estilos para el campo de entrada de correo electrónico en el modal */
+.modal-content input[type="email"] {
+    width: calc(100% - 12px); /* Ancho del 100% menos el padding y el borde */
+    padding: 8px; /* Espacio de relleno */
+    margin-bottom: 15px; /* Espacio inferior */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 4px; /* Bordes redondeados */
+    box-sizing: border-box; /* Incluye padding y borde en el ancho */
+}
+
+/* Estilos para los botones dentro del modal */
+.modal-content button {
+    background-color: #2196f3; /* Color de fondo azul */
+    color: white; /* Color de texto blanco */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espacio de relleno */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor */
+    font-size: 1em; /* Tamaño de la fuente */
+    margin-top: 10px; /* Espacio superior */
+    transition: background-color 0.3s ease; /* Transición suave para el hover */
+}
+
+/* Estilos para los botones del modal al pasar el rat
